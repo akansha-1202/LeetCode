@@ -4,13 +4,12 @@ class Solution {
         int area = 0;
         int i = 0, j = n-1;
         while(i < j){
-            if(height[i] < height[j]){
-                area = Math.max(area, height[i]*(j-i));
+            area = Math.max(area, Math.min(height[i], height[j])*(j-i));
+            
+            if(height[i] < height[j])
                 i++;
-            } else {
-                area = Math.max(area, height[j]*(j-i));
+            else
                 j--;
-            }
         }
         return area;
     }
