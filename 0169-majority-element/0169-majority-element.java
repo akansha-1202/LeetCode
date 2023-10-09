@@ -6,17 +6,24 @@ class Solution {
         
         // Moore's Voting Algorithm
         
-        int cnt = 1, num = nums[0];
+        int cnt = 1, ans = nums[0];
         for(int i = 1; i < n; i++) {
-            if(nums[i] == num)
+            if(nums[i] == ans)
                 cnt++;
             else
                 cnt--;
             if(cnt == 0) {
                 cnt = 1;
-                num = nums[i];
+                ans = nums[i];
             }
         }
-        return num;
+        
+//      If there is no guarantee that majority element always occurs then check manually
+        cnt = 0;
+        for(int val : nums) {
+            if(val == ans) cnt++;
+            if(cnt > majority) return ans;
+        }
+        return -1;
     }
 }
