@@ -17,9 +17,6 @@ class Solution {
                 num = nums[i];
             }
         }
-        cnt = 0;
-        for(int val : nums) if(val == num) cnt++;
-        if(cnt > majority) return num;
-        return -1;
+        return num;
     }
 }
