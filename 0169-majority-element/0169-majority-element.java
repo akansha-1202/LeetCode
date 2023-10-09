@@ -3,15 +3,23 @@ class Solution {
         int n = nums.length;
         int majority = n / 2;
         if(n == 1) return nums[0];
-        Arrays.sort(nums);
-        int cnt = 1;
+        
+        // Moore's Voting Algorithm
+        
+        int cnt = 1, num = nums[0];
         for(int i = 1; i < n; i++) {
-            if(nums[i] == nums[i-1]) cnt++;
-            else cnt = 1;
-                                                                                                         
-            if(cnt > majority)
-                return nums[i];
+            if(nums[i] == num)
+                cnt++;
+            else
+                cnt--;
+            if(cnt == 0) {
+                cnt = 1;
+                num = nums[i];
+            }
         }
+        cnt = 0;
+        for(int val : nums) if(val == num) cnt++;
+        if(cnt > majority) return num;
         return -1;
     }
 }
