@@ -1,27 +1,14 @@
 class Solution {
     public int[] plusOne(int[] digits) {
         int n = digits.length;
-        boolean flag = false;
-        for(int val : digits) {
-            if(val != 9){
-                flag = true;
-                break;
-            }
+        
+        for(int i = n - 1; i >= 0; i--) {
+            digits[i]++;
+            if(digits[i] < 10) return digits;
+            digits[i] %= 10;
         }
-        if(!flag) {
-            int[] res = new int[n + 1];
-            res[0] = 1;
-            return res;
-        }
-        int num = digits[n - 1];
-        digits[n-1] += 1;
-        if(num == 9)
-            for(int i = n-1; i >= 0; i--) {
-                if(digits[i] >= 10) {
-                    digits[i] %= 10;
-                    digits[i-1] += 1;
-                }
-            }
-        return digits; 
+        int[] ans = new int[n + 1];
+        ans[0] = 1;
+        return ans;
     }
 }
