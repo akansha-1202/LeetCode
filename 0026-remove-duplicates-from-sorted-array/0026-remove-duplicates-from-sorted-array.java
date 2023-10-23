@@ -4,8 +4,7 @@ class Solution {
         int i = 0, cnt = 1;
         while(i < n-1){
             if(arr[i] != arr[i+1]){ 
-                arr[cnt] = arr[i+1];
-                cnt++;       
+                arr[cnt++] = arr[i+1];       
             } 
             i++;
         }
