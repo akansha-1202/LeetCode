@@ -3,10 +3,8 @@ class Solution {
         int n = arr.length;
         int i = 0, cnt = 0;
         while(i < n){
-            if(arr[i] != val){
-                arr[cnt] = arr[i];
-                cnt++;
-            }
+            if(arr[i] != val)
+                arr[cnt++] = arr[i];
             i++;
         }
         return cnt;
