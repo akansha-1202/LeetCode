@@ -1,14 +1,15 @@
 class Solution {
-    public boolean searchMatrix(int[][] arr, int target) {
-        boolean flag = false;
-        for(int r = 0; r < arr.length; r++){
-            for(int c = 0; c < arr[0].length; c++)
-                if(arr[r][c] == target){
-                     flag = true;
-                     return true;
-                }
-            if(flag) break;
+    public boolean searchMatrix(int[][] arr, int k) {
+        int r = 0;
+        int c = arr[0].length - 1;
+        while(r < arr.length && c >= 0){
+            if(arr[r][c] == k){ 
+                return true; 
+            }
+            else if(arr[r][c] > k) c--;
+            else if(arr[r][c] < k) r++;
         }
-       return false;
+        
+        return false;
     }
 }
